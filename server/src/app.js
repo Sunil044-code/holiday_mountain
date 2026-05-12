@@ -1,6 +1,7 @@
 import express from 'express'
 import userRouter from './routes/user.route.js'
 import cors from 'cors'
+import reviewRouter from './routes/review.route.js';
 const app =express()
 
 app.use(cors());
@@ -12,5 +13,5 @@ app.get('/api',(req,res)=>{
 })
 
 app.use('/api/user',userRouter)
-
+app.use('/api/review',reviewRouter)
 export default app;
