@@ -27,7 +27,7 @@ const TrekSchema=new Schema({
         min:0
 
     },
-    altidue:{
+    altitude:{
         type:Number,
         required:true,
         min:0,
@@ -36,6 +36,9 @@ const TrekSchema=new Schema({
     estimated_duration:{
         type:String
 
+    },
+    image:{
+        type: [String]
     }
 },{timestamps:true})
 

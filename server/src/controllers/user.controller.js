@@ -102,10 +102,8 @@ const logoutUser=async(req,res)=>{
 const getProfile = async (req, res) => {
   try {
 
-    const userId=req.params.id;
-    const { email } = req.body;
 
-    const user = await User.findById(userId).select("-password");
+    const user = await User.findById(req.user._id).select("-password");
 
     if (!user) {
       return res.status(404).json({
@@ -127,15 +125,15 @@ const getProfile = async (req, res) => {
 };
 const updateUser=async(req,res)=>{
    try {
-    const userId=req.params.id;
+    
    const {email,phone,userName}=req.body
 
-   const user=await User.findByIdAndUpdate(userId,
+   const user=await User.findByIdAndUpdate(req.user._id,
     {
         userName,
         email,
         phone,
-    },{new:true})
+    },{new:true,runValidators:true})
 
     if (!user) {
       return res.status(404).json({
@@ -159,9 +157,9 @@ const updateUser=async(req,res)=>{
 
 const deleteUser=async(req,res)=>{
     try {
-        const userId=req.params.id;
         
-        const user=await User.findByIdAndDelete(userId);
+        
+        const user=await User.findByIdAndDelete(req.user._id);
         if(!user){
             return res.status(404).json({message:"User Not Found"})
         }
