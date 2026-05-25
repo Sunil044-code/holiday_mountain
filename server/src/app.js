@@ -14,4 +14,5 @@ app.use(express.json());
 app.use('/api/user',userRouter)
 app.use('/api/itinerary',itineraryRouter)
 app.use('/api/treks',trekRouter)
+app.use('/api/review',reviewRouter)
 export default app;
