@@ -9,8 +9,8 @@ reviewRouter.post('/',(req,res)=>{
     
 })
 
-reviewRouter.post('/create',protect,createReview)
-reviewRouter.patch('/upadte/:id',protect,updateReview)
-reviewRouter.delete('/delete/:id',protect,deleteReview)
+reviewRouter.post('/create',createReview)
+reviewRouter.patch('/upadte/:id',updateReview)
+reviewRouter.delete('/delete/:id',deleteReview)
 reviewRouter.post('/:trekId',getReview)
 export default reviewRouter

@@ -24,6 +24,7 @@ const packageSchema= new Schema({
     status:{
         type:String,
         enum:['Available','Fully Booked'],
+        default:"Available"
 
     },
     includedTransport:{
