@@ -4,8 +4,8 @@ import { admin } from "../middleware/admin.auth.middleware.js";
 import { protect } from "../middleware/auth.middleware.js";
 const packageRouter=Router();
 
-packageRouter.post('/create',protect,admin,createPackage)
-packageRouter.patch('/update',protect,admin,updatePackage)
+packageRouter.post('/create/:trekId',protect,admin,createPackage)
+packageRouter.patch('/update/:packageId',protect,admin,updatePackage)
 packageRouter.get('/:trekId',getPackagesByTrek)
 packageRouter.delete('/delete/:packageId',protect,admin,deletePackage)
 

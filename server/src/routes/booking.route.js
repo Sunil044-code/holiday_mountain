@@ -11,3 +11,5 @@ bookingRouter.get('/my-bookings',protect,readMyBookings)
 bookingRouter.get('/:bookingId',protect,getBooking)
 bookingRouter.patch('/cancel/:bookingId',protect,cancelBooking)
 bookingRouter.get('/',protect, admin,getAllBookings)
+
+export default bookingRouter;

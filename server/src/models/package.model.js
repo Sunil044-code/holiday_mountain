@@ -4,7 +4,7 @@ const packageSchema= new Schema({
 
     trek_id:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'True',
+        ref:'Trek',
         required:true,
     },
     package_name:{

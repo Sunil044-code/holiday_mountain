@@ -4,7 +4,7 @@ const bookingSchema = new Schema({
     user_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
-        requiured:true
+        required:true
     },
     trek_id:{
         type:mongoose.Schema.Types.ObjectId,

@@ -34,18 +34,15 @@ const createBooking=async(req,res)=>{
                 message:"No Package found"
             })
         }
-        const total_price= packageData.price * participants
+        const total_price = packageData.price * total_participant;
 
         const booking = await Booking.create({
-            user_id:req.user._id,
-            trek_id,
-            package_id,
-            total_participant,
-            start_date,
-            total_price,
-            status,
-
-
+          user_id: req.user._id,
+          trek_id,
+          package_id,
+          total_participant,
+          start_date,
+          price: total_price
         });
         return res.status(202).json({
             message:"Booking Created Sucessfully"
@@ -67,9 +64,9 @@ const readMyBookings=async(req,res)=>{
     
 
     res.status(200).json({
-        message:"Created Sucesssfully",
-        total_bookings: booking.length,
-        booking
+      message: "Bookings fetched successfully",
+      total_bookings: booking.length,
+      booking
     })
 
 
@@ -142,8 +139,7 @@ const cancelBooking = async (req, res) => {
       });
     }
 
-    booking.booking_status =
-      "cancelled";
+    booking.status = "Cancelled";
 
     await booking.save();
 
