@@ -13,6 +13,11 @@ const packageSchema= new Schema({
 
 
     },
+    package_type:{
+      type:String,
+      enum:['Basic','Standard','Premium'] ,
+      required:true
+    },
     price:{
         type:Number,
         required:true,
